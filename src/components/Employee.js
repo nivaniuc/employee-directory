@@ -3,7 +3,7 @@ import Table from "./Table";
 import search from "../components/utils/API";
 import Navbar from "./Navbar";
 
-class Employees extends React.Component {
+class Employee extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -22,7 +22,7 @@ class Employees extends React.Component {
     event.preventDefault();
     }
 
-  // If this mounts properly, use the giphy api to get images as placeholders (past self)
+
   componentDidMount() {
     this.queryRandomUserAPI();
   }
@@ -33,12 +33,39 @@ class Employees extends React.Component {
       .catch((err) => console.log(err));
   };
   render() {
+    //This filters results off of the user's searched terms
+    let searchBarFilter = this.state.results.filter(employee => 
+      employee.name.first.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
+      || 
+      employee.name.last.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
+      ||
+      employee.email.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
+      ||
+      employee.location.city.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
+      ||
+      employee.location.state.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
+      ||
+      employee.location.country.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
+      ||
+      employee.phone.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1)
+    
+    let tableResults;
+
+    if(this.state.value === ""){
+      tableResults = this.state.results;
+    } else {
+      tableResults = searchBarFilter;
+    }
+    
     return (
+      <div>
+        <Navbar value={this.state.value} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
       <div className="container-fluid">
-        <Table results={this.state.results} />
+        <Table results={tableResults} />
+      </div>
       </div>
     );
   }
 }
 
-export default Employees;
+export default Employee;
