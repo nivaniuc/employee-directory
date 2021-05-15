@@ -1,11 +1,26 @@
 import React from "react";
 import Table from "./Table";
-import search from "./utils/API";
+import search from "../components/utils/API";
+import Navbar from "./Navbar";
 
-class Employee extends React.Component {
-  state = {
-    results: [],
-  };
+class Employees extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            value: '',
+            results: []
+        };
+        this.handleChange = this.handleChange.bind(this);
+        this.handleSubmit = this.handleSubmit.bind(this);
+      }
+
+    handleChange(event) {
+    this.setState({value: event.target.value});
+    }
+
+    handleSubmit(event) {
+    event.preventDefault();
+    }
 
   // If this mounts properly, use the giphy api to get images as placeholders (past self)
   componentDidMount() {
@@ -26,4 +41,4 @@ class Employee extends React.Component {
   }
 }
 
-export default Employee;
+export default Employees;
