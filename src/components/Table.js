@@ -1,5 +1,6 @@
 import React from "react";
 import Tbody from "./Tbody";
+//This function is what generates the randomized table of employees
 function Table(props) {
   console.log(props.results);
   return (

@@ -2,7 +2,7 @@ import React from "react";
 import Table from "./Table";
 import search from "../components/utils/API";
 import Navbar from "./Navbar";
-
+//This employee class returns all of the information for the app
 class Employee extends React.Component {
     constructor(props) {
         super(props);

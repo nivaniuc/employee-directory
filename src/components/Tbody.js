@@ -1,5 +1,5 @@
 import React from "react";
-
+//This function makes table rows for each of the employees
 function Tbody(props) {
   console.log(props);
   const tableData = props.results.map((employee) => (
