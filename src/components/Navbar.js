@@ -1,14 +1,18 @@
 import React from "react";
-import Search from "./Search"
+import Search from "./Search";
 
 function Navbar(props) {
   return (
     <nav className="navbar navbar-expand-lg navbar-dark bg-dark d-flex justify-content-between">
-        <a className="navbar-brand" href="/">
+      <a className="navbar-brand" href="/">
         Employee Directory
-        </a>
-        <Search value={props.value} handleChange={props.handleChange} handleSubmit={props.handleSubmit}/>
-      </nav>
+      </a>
+      <Search
+        value={props.value}
+        handleChange={props.handleChange}
+        handleSubmit={props.handleSubmit}
+      />
+    </nav>
   );
 }
 

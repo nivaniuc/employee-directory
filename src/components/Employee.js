@@ -4,24 +4,23 @@ import search from "../components/utils/API";
 import Navbar from "./Navbar";
 //This employee class returns all of the information for the app
 class Employee extends React.Component {
-    constructor(props) {
-        super(props);
-        this.state = {
-            value: '',
-            results: []
-        };
-        this.handleChange = this.handleChange.bind(this);
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: "",
+      results: [],
+    };
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
+  }
 
-    handleChange(event) {
-    this.setState({value: event.target.value});
-    }
+  handleChange(event) {
+    this.setState({ value: event.target.value });
+  }
 
-    handleSubmit(event) {
+  handleSubmit(event) {
     event.preventDefault();
-    }
-
+  }
 
   componentDidMount() {
     this.queryRandomUserAPI();
@@ -34,35 +33,47 @@ class Employee extends React.Component {
   };
   render() {
     //This filters results off of the user's searched terms
-    let searchBarFilter = this.state.results.filter(employee => 
-      employee.name.first.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
-      || 
-      employee.name.last.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
-      ||
-      employee.email.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
-      ||
-      employee.location.city.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
-      ||
-      employee.location.state.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
-      ||
-      employee.location.country.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1
-      ||
-      employee.phone.toLowerCase().indexOf(this.state.value.toLowerCase()) !== -1)
-    
+    let searchBarFilter = this.state.results.filter(
+      (employee) =>
+        employee.name.first
+          .toLowerCase()
+          .indexOf(this.state.value.toLowerCase()) !== -1 ||
+        employee.name.last
+          .toLowerCase()
+          .indexOf(this.state.value.toLowerCase()) !== -1 ||
+        employee.email.toLowerCase().indexOf(this.state.value.toLowerCase()) !==
+          -1 ||
+        employee.location.city
+          .toLowerCase()
+          .indexOf(this.state.value.toLowerCase()) !== -1 ||
+        employee.location.state
+          .toLowerCase()
+          .indexOf(this.state.value.toLowerCase()) !== -1 ||
+        employee.location.country
+          .toLowerCase()
+          .indexOf(this.state.value.toLowerCase()) !== -1 ||
+        employee.phone.toLowerCase().indexOf(this.state.value.toLowerCase()) !==
+          -1
+    );
+
     let tableResults;
 
-    if(this.state.value === ""){
+    if (this.state.value === "") {
       tableResults = this.state.results;
     } else {
       tableResults = searchBarFilter;
     }
-    
+
     return (
       <div>
-        <Navbar value={this.state.value} handleChange={this.handleChange} handleSubmit={this.handleSubmit}/>
-      <div className="container-fluid">
-        <Table results={tableResults} />
-      </div>
+        <Navbar
+          value={this.state.value}
+          handleChange={this.handleChange}
+          handleSubmit={this.handleSubmit}
+        />
+        <div className="container-fluid">
+          <Table results={tableResults} />
+        </div>
       </div>
     );
   }
