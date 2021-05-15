@@ -1,8 +1,16 @@
-# Getting Started with Create React App
+# Employee Directory Application
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+## Table of Contents
+- [Introduction](#introduction)
+- [Website Link](#website)
+- [License](#license)
+- [Support](#support)
+
+## Introduction
+
+This application was made to give ease of access to employers who are looking to quickly access a directory of different employees and obtain all their contact information. 
 
 In the project directory, you can run:
 
@@ -68,3 +76,13 @@ This section has moved here: [https://facebook.github.io/create-react-app/docs/d
 ### `yarn build` fails to minify
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
+## License
+[![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
+
+## Support
+Please contact me if you want to collab or roast my code. Thanks.
+
+[GitHub](https://github.com/nivaniuc)
+
+[LinkedIn](https://www.linkedin.com/in/nicholas-ivaniuc-7074321a1/)
